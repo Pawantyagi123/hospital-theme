@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@property --border-angle{
+    syntax: "<angle>";
+    inherits: false;
+    initial-value:  0deg;
+}
+
+@theme{
+    --animate-rotate-border: border-rotate 4s linear infinite;
+    @keyframes border-rotate {
+        to{
+            --border-angle:360deg;
+        }
+    }
+}
+
+.dark-dots {
+  --bg: #070F2B;              
+  --dot: rgba(250, 245, 245, 0.567);
+
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(var(--dot) 2px, transparent 1px),
+    radial-gradient(var(--dot) 2px, transparent 1px);
+   background-size: 60px 60px, 60px 60px;
+  background-position: 0 0, 24px 24px;           
+  color: #eaeaea;                               
+}
+
+

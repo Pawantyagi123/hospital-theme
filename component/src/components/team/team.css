@@ -1,0 +1,193 @@
+:root {
+  --primary: #6a59ff;
+  --white: #ffffff;
+  --bg: #f5f5f5;
+  --overlay-gradient: linear-gradient(
+    40deg,
+    #1b1a55b3,
+    #070f2ba4
+  );
+}
+
+/* ======== SWIPER CONTAINER ======== */
+.swiper_container {
+  padding: 2rem 0;
+
+}
+
+.swiper-slide {
+  width: 400px;
+  height: auto;
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  display: none;
+}
+
+/* ======== IMAGE CONTAINER ======== */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.5s ease;
+}
+
+/* ======== IMAGE OVERLAY ======== */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-gradient);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.image-overlay h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.image-overlay p {
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 0 15px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.image-container:hover img {
+  filter: brightness(0.7);
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.image-container:hover .image-overlay h3,
+.image-container:hover .image-overlay p {
+  transform: translateY(0);
+}
+
+/* Shine Effect */
+.image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.6s ease;
+}
+
+.image-container:hover::after {
+  left: 150%;
+}
+
+/* ======== SLIDER CONTROLS ======== */
+.slider-controler {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.slider-arrow {
+  background: var(--white);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slider-arrow:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.slider-arrow svg {
+  font-size: 1.5rem;
+}
+
+/* ======== PAGINATION ======== */
+.swiper-pagination {
+  position: relative;
+  bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet {
+  background: #ccc;
+  opacity: 1;
+  margin: 0 5px !important;
+  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary);
+}
+
+/* ======== RESPONSIVE DESIGN ======== */
+@media (max-width: 1024px) {
+  .swiper-slide {
+    width: 260px;
+  }
+  .image-container {
+    height: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: 240px;
+  }
+  .image-container {
+    height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .swiper-slide {
+    width: 90%;
+  }
+  .image-container {
+    height: 260px;
+  }
+  .image-overlay h3 {
+    font-size: 1.1rem;
+  }
+  .image-overlay p {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Doto:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Qwigley&family=Vesper+Libre:wght@400;500;700;900&display=swap');
+
+body{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "ROND" 0;
+}
